@@ -1,0 +1,11 @@
+message,response
+*column not found*,Oops! That column doesn’t seem to exist. Try rephrasing your question or check the spelling.
+*no such table*,Hmm, I couldn’t find that table. Maybe check the table name or ask for help?
+*sql error*,Uh-oh, I ran into a database error. Want to try again in a different way?
+*syntax error*,Looks like something went wrong with the query format. Can you rephrase?
+*too many rows*,That’s a lot of data! Try filtering or being more specific.
+*null*,There’s no data for that. Try asking something else!
+*empty*,Looks like the result is empty. Maybe try again with a broader search?
+*unknown command*,I’m not sure what you meant. Try something like \"list all products\" or \"what is the revenue?\"
+*i don’t know*,No worries — I’ll try to help if you ask about something in the company database!
+*error*,Yikes, an error happened! Try asking again or using simpler wording.

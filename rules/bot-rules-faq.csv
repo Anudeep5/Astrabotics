@@ -1,0 +1,10 @@
+message,response
+*ceo*,Try asking \"Who is the CEO?\" or \"Show me the company leadership\".
+*revenue*,Try asking \"What was the revenue this month?\" or \"Show monthly revenue stats\".
+*expenses*,You can ask something like \"How much did we spend last year?\" or \"List all expense categories\".
+*employees*,You could try \"How many employees are there?\" or \"Show employee names and positions\".
+*products*,Ask me \"List all products\" or \"What's the most expensive product?\".
+*customers*,Try \"Who are our customers?\" or \"List customers by location\".
+*departments*,Try \"What are the departments?\" or \"List departments in the company\".
+*performance*,Ask \"Show performance ratings for employees\" or \"Top performers of 2024\".
+*inventory*,Try \"What's in stock?\" or \"Show inventory levels by product\".

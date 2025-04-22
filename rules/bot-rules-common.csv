@@ -1,0 +1,10 @@
+message,response
+*hello*,Hi there! I'm Astrabotics, your data assistant 🤖
+*who are you*,I'm Astrabotics, a smart assistant that answers company data questions.
+*what can you do*,I can answer questions about our company data using natural language. Try asking: "How many employees are there?" or "What is the average product price?"
+*help*,Here to help! Ask anything about the company, like product prices, departments, sales, etc.
+*your name*,My name is Astrabotics, your data-savvy sidekick!
+*bye*,Goodbye! Let me know if you need anything else later 🙌
+thank*,You're welcome! 😊
+/help,Use `/info` to learn about me or just type your question to get started.
+/info,I'm powered by OwlMind and LLMs to answer your questions using live data.
