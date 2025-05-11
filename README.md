@@ -1,56 +1,124 @@
+# Astrabotics
 
+**Astrabotics** is a GenAI-powered Discord bot that lets users ask natural language questions about company data and instantly get answers by executing SQL queries on a connected database.
 
-<img src="docs/images/owlmind-banner.png" width=800>
+It is built with the OwlMind framework and enhanced with LLM-driven SQL generation, schema-aware prompting, and post-processing for accurate and secure database access.
 
-### [Understand](./README.md) | [Get Started](./README.md#getting-started) | [Contribute](./CONTRIBUTING.md)
+---
 
-# OwlMind 
+## Features
 
-The OwlMind Framework is being developed by The Generative Intelligence Lab at Florida Atlantic University to support education and experimentation with Hybrid Intelligence Systems. These solutions combine rule-based and generative AI (GenAI)-based inference to facilitate the implementation of local AI solutions, improving latency, optimizing costs, and reducing energy consumption and carbon emissions.
+- Ask plain-English questions like `“What is the revenue in May 2023?”`
+- Automatically generates and runs SQL queries on your database
+- Dynamically adapts to any schema using live introspection
+- LLM-powered with prompt engineering + correction logic
+- Handles time-based queries smartly with SQLite `strftime()`
+- Returns results directly inside Discord
+- Fallback rules and error handling
 
-The framework is designed for both education and experimentation empowering students and researchers to rapidly build Hybrid AI-based Agentic Systems, achieving tangible results with minimal setup.
+---
 
+## Quickstart
 
-## Core Components
+### 1. Clone the Repository
 
+```bash
+git clone https://github.com/your-username/astrabotics.git
+cd astrabotics
+```
 
-<img src="docs/images/owlmind-arch.png" width=800>
+---
 
-* **Bot Runner for Discord Bots:** Hosts and executes bots on platforms like Discord, providing users with an interactive conversational agent.
-* **Agentic Core:** Enables deliberation and decision-making by allowing users to define and configure rule-based systems.
-* **Configurable GenAI Pipelines:** Supports flexible and dynamic pipelines to integrate large-scale GenAI models into workflows.
-* **Workflow Templates:** Provides pre-configured or customizable templates to streamline the Prompt Augmentation Process.
-* **Artifacts:** Modular components that connect agents to external functionalities such as web APIs, databases, Retrieval-Augmented Generation (RAG) systems, and more.
-* **Model Orchestrator:** Manages and integrates multiple GenAI models within pipelines, offering flexibility and simplicity for developers.
+### 2. Create a Virtual Environment
 
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+```
 
-## Hybrid Intelligence Framework
+---
 
-The OwlMind architecture follows the principles of ``Hybrid Intelligence``, combining local rule-based inference with remote GenAI-assisted inference. This hybrid approach allows for multiple inference configurations:
+### 3. Install Dependencies
 
-* **GenAI generates the rules:**  The system leverages GenAI to create or refine rule-based logic, ensuring adaptability and efficiency.
-* **Rules solve interactions; GenAI intervenes when needed:** if predefined rules are insufficient, the system escalates decision-making to the GenAI model.
-* **Rules solve interactions and request GenAI to generate new rules:** instead of directly relying on GenAI for inference, the system asks it to expand its rule set dynamically.
-* **Proactive rule generation for new contexts:** the system anticipates novel situations and queries GenAI for relevant rules before issues arise, ensuring continuous learning and adaptability.
+```bash
+pip install -r requirements.txt
+```
 
+---
 
-## Agentic Core: Belief-Desire-Intention (BDI) Model
+### 4. Configure Environment
 
+Create a `.env` file with your Discord bot token and LLM provider details:
 
-The ``Agentic Core`` adheres to the ``Belief-Desire-Intention (BDI) framework``, a cognitive architecture that enables goal-oriented agent behavior. The decision-making process is structured as follows:
+```env
+DISCORD_TOKEN=your_discord_bot_token
+SERVER_URL=http://localhost:11434
+SERVER_MODEL=llama3
+SERVER_TYPE=ollama
+SERVER_API_KEY=  # Optional, if needed
+```
 
-* **Beliefs:** The agent's knowledge or perception of its environment, forming the foundation for evaluation and decision-making.
-* **Desires:** The agent’s objectives or goals, such as completing workflows, retrieving data, or responding to user queries.
-* **Intentions:** The specific plans or strategies the agent commits to in order to achieve its desires, ensuring feasibility and optimization.
-* **Plan Base:** A repository of predefined and dynamically generated plans, serving as actionable roadmaps to execute the agent's goals efficiently.
-* **Capability Base:** Defines the agent's operational capabilities, specifying available actions and interactions; linked to existing Artifacts.
+---
 
+### 5. Launch the Bot
 
-## Getting Started
+```bash
+python bot-1.py
+```
 
-* [Install the Owlmind Framework on your Computer](./INSTALLING.md)
-* [Set up a simple HybridAI-Based Discord Bot](./INSTALLING.md)
-* [Configure GenAI Pipelines](./CONFIG.md) to extend the Bot's conversation capabilities
-* Configure Prompt Engineering Workflows to improve the Bot's reasoning.
-* Configure Artifacts in the GenAI Pipelines to extend the Bot's reasoning capabilities
+---
 
+## Project Structure
+
+```plaintext
+astrabotics/
+├── bot-1.py               # Bot startup script
+├── sql_engine.py          # Core LLM+SQL processing logic
+├── db_client.py           # Schema-aware DB interface
+├── context.py             # Message context handler
+├── rules/                 # Rule-based fallback responses
+│   ├── bot-rules-common.csv
+│   ├── bot-rules-fun.csv
+│   └── bot-rules-errors.csv
+├── .env                   # Your Discord and model credentials
+└── company_data.db        # Your database (SQLite)
+```
+
+---
+
+## Example Queries
+
+- `@Astrabotics what is the revenue in May 2023?`
+- `@Astrabotics show all departments`
+- `@Astrabotics top 5 products by sales`
+- `@Astrabotics what was the expense in Q1 2024?`
+
+---
+
+## Advanced Configurations
+
+- You can switch LLMs using `SERVER_MODEL` and `SERVER_TYPE` (e.g., `ollama`, `openai`)
+- Database schema is dynamically introspected — no hardcoding needed
+- SQL is post-processed to fix time-based filters and remove invalid characters
+
+---
+
+## Built With
+
+- [OwlMind](https://github.com/genilab-fau/owlmind)
+- Python 3.10+
+- SQLite
+- Discord.py
+- Your choice of LLM (Ollama, OpenAI, etc.)
+
+---
+
+## License
+
+MIT License — free to use, modify, and share.
+
+---
+
+## Questions or Contributions?
+
+Open an issue or drop a pull request. Happy hacking with Astrabotics!
